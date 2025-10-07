@@ -21,7 +21,7 @@
 
 ---
 
-## ✨ Why this exists
+## ✨ Why this Challenge? 
 To build **real, hands-on muscle** in Python, AWS, Terraform, and automation — one small win per day.  
 The focus is **habits, clarity, and compounding progress**, not perfection.
 
@@ -36,7 +36,7 @@ The focus is **habits, clarity, and compounding progress**, not perfection.
 
 ---
 
-## ✨ Roadmap (Days 1–30)
+## ✨ Roadmap 
 
 **Week 1 – Local foundations**  
 CPU/RAM/Disk → CSV logs → charts → schedule → alerts → tidy → polish  
