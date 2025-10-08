@@ -22,7 +22,7 @@
 ---
 
 ## ✨ Why this Challenge? 
-To build **real, hands-on muscle** in Python, AWS, Terraform, and automation — one small win per day.  
+To build **real, hands-on muscle** in Python, AWS, Terraform, and automation one small win per day.  
 The focus is **habits, clarity, and compounding progress**, not perfection.
 
 ---
