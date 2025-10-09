@@ -4,7 +4,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from pathlib import Path
 
-# --- find the CSV file automatically ---
+#  find the CSV file automatically 
 base_path = Path(__file__).parent.parent
 csv_locations = [
     base_path / "Day02" / "metrics.csv",          # normal folder
@@ -23,12 +23,12 @@ if csv_file is None:
 
 print("Using CSV file:", csv_file)
 
-# --- read the CSV data ---
+# read the CSV data 
 data = pd.read_csv(csv_file)
 print("Columns in CSV:", list(data.columns))
 print(data.head())
 
-# --- clean the timestamp column ---
+#  clean the timestamp column 
 # Force pandas to treat the timestamp as full date + time
 if "timestamp" in data.columns:
     data["timestamp"] = pd.to_datetime(
@@ -42,7 +42,7 @@ else:
     print("CSV file missing 'timestamp' column!")
     exit()
 
-# --- make the chart ---
+#  make the chart 
 plt.figure(figsize=(10, 6))
 
 if "cpu_percent" in data.columns:
