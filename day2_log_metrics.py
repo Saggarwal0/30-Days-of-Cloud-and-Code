@@ -1,47 +1,48 @@
-"""
-Day 2: Log CPU/RAM/Disk to a CSV file (metrics.csv)
--Appends one row per ruin: timestamp,cpu.ram,disk
--Builds on Day 1 (dashboard) and sets up data for charts/alerts
-"""
+# Day 2 (Loop): Log CPU, RAM, and Disk every few seconds
 
+import psutil
 from datetime import datetime
-from pathlib import Path
 import csv
-import psutil # pip install psutil
+import time
+from pathlib import Path
 
-#Resolve repo root so metrics.cvs lives at the top Level (not inside Day02/)
-REPO_ROOT = Path(__file__).resolve().parents[1]
-CSV_PATH = REPO_ROOT / "metrics.csv"
+# where to save the CSV (same folder as this script)
+file_path = Path(__file__).parent / "metrics.csv"
 
-def system_root_path() -> Path:
-    """
-    Cross-platform disk root for psutil.disk_usage()
-    On Windows, Path.home().anchor returns e.g. 'C:\\'
-    On Linux/macOS,'/ is fine
-    """
-    anchor = Path.home().anchor #'' on *nix,'C:\\' on Windows
-    return Path(anchor) if anchor else Path("/")
+# how often to record (seconds) and how many times
+interval_seconds = 5     # change this if you want (e.g., 2, 10, etc.)
+num_samples = 30         # how many rows to write
 
-def sample_metrics() -> tuple[str, float,float]:
-    """Collect a single snapshot of system metrics."""
-    now = datetime.now().strftime("%Y-%m-%d-%H:%M:%S")
-    cpu = psutil.cpu_percent(interval=1)
-    ram = psutil.virtual_memory().percent
-    disk = psutil.disk_usage(str(system_root_path())).percent
-    return now, cpu, ram, disk
-
-def write_row(csv_path: Path, row:tuple[str, float,float,float]) -> None:
-    """Append a row; create header if file doesn't exist yet"""
-    new_file = not csv_path.exists()
-    with csv_path.open("a", newline="", encoding="utf-8") as f:
+# create the CSV with header if it doesn't exist yet
+if not file_path.exists():
+    with open(file_path, "w", newline="") as f:
         w = csv.writer(f)
-        if new_file:
-            w.writerow(["timestamp", "cpu_percent","disk_percent"])
-        w.writerow(row)
-def main():
-    row = sample_metrics()
-    write_row(CSV_PATH,row)
-    print(f"Logged: {row} -> {CSV_PATH}")
+        w.writerow(["timestamp", "cpu_percent", "ram_percent", "disk_percent"])
 
-if __name__ == "__main__":
-    main()
+print("Logging to:", file_path)
+print(f"Interval: {interval_seconds}s, Samples: {num_samples}")
+
+try:
+    for i in range(num_samples):
+        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+        # take a sample
+        cpu = psutil.cpu_percent(interval=1)            # 1-second avg CPU
+        ram = psutil.virtual_memory().percent
+        # root path: "/" works for most systems, including Windows (maps to the current drive)
+        disk = psutil.disk_usage("/").percent
+
+        # append to CSV
+        with open(file_path, "a", newline="") as f:
+            w = csv.writer(f)
+            w.writerow([timestamp, cpu, ram, disk])
+
+        print(f"[{i + 1}/{num_samples}] Saved at {timestamp}  CPU={cpu}%  RAM={ram}%  Disk={disk}%")
+
+        # wait until the next sample (minus the 1s already spent in cpu_percent)
+        time.sleep(max(0, interval_seconds - 1))
+
+    print("Done logging.")
+
+except KeyboardInterrupt:
+    print("\nStopped by user. Partial data saved.")
