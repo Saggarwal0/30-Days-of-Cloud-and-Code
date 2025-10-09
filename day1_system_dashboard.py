@@ -2,16 +2,13 @@
 # A simple system monitor script for Day 1 of 30 Days of Cloud & Code
 # Author: Simran Aggarwal
 
-# ----------------------------------------------
 # 1 Import required libraries
-# ----------------------------------------------
+
 import psutil           # Gives access to system performance metrics
 from datetime import datetime   # To display current date and time
 
-
-# ----------------------------------------------
 # 2️ Define the dashboard function
-# ----------------------------------------------
+
 def show_dashboard():
     # Collect system statistics using psutil
     cpu_usage = psutil.cpu_percent(interval=1)        # % CPU usage after 1s sample
@@ -27,11 +24,9 @@ def show_dashboard():
     print(f" RAM Usage: {memory}%")
     print(f" Disk Usage: {disk}%")
     print("-----------------------------------")
-
-
-# ----------------------------------------------
+    
 # 3️ Run the dashboard once
-# ----------------------------------------------
+
 if __name__ == "__main__":
 
 
