@@ -56,13 +56,13 @@ FastAPI, tests/lint, Docker, GitHub Actions CI, Lambda + API GW, logging, capsto
 
 | Day | Project | Status |
 |:--:|:--:|:--:|
-| 01 | System Resource Dashboard (CPU/RAM/Disk) | ☐ |
-| 02 | Log metrics to CSV | ☐ |
-| 03 | Plot metrics with Matplotlib | ☐ |
-| 04 | Schedule logger (every 5 min) | ☐ |
-| 05 | Threshold alerts (console/notify) | ☐ |
-| 06 | Turn into a CLI (log • plot • alert) | ☐ |
-| 07 | Mini GUI (Tkinter) for live metrics | ☐ |
+| 01 | System Resource Dashboard (CPU/RAM/Disk) | ✅ Done |
+| 02 | Log metrics to CSV | ✅ Done |
+| 03 | Plot metrics with Matplotlib | ✅ Done |
+| 04 | Schedule logger (every 5 min) | ✅ Done |
+| 05 | Threshold alerts (console/notify) | ✅ Done |
+| 06 | Turn into a CLI (log • plot • alert) | ✅ Done |
+| 07 | Mini GUI (Tkinter) for live metrics | ✅ Done |
 | 08 | AWS STS identity check (account/ARN) | ☐ |
 | 09 | S3: list/create bucket with tags (boto3) | ☐ |
 | 10 | S3: upload file + presigned URL | ☐ |
