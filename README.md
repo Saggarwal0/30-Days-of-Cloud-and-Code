@@ -63,7 +63,7 @@ FastAPI, tests/lint, Docker, GitHub Actions CI, Lambda + API GW, logging, capsto
 | 05 | Threshold alerts (console/notify) | ✅ Done |
 | 06 | Turn into a CLI (log • plot • alert) | ✅ Done |
 | 07 | Mini GUI (Tkinter) for live metrics | ✅ Done |
-| 08 | AWS STS identity check (account/ARN) | ☐ |
+| 08 | AWS STS identity check (account/ARN) | ✅ Done |
 | 09 | S3: list/create bucket with tags (boto3) | ☐ |
 | 10 | S3: upload file + presigned URL | ☐ |
 | 11 | S3: simple “static page” uploader | ☐ |
