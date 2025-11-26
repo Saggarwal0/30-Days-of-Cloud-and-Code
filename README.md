@@ -87,7 +87,7 @@ FastAPI, tests/lint, Docker, GitHub Actions CI, Lambda + API GW, logging, capsto
 | 29 | Local web dashboard (Flask + Chart.js) | ☐ |
 | 30 | Release v1.0 + screenshots + polished README | ☐ |
 
----
+---    
 
 <p align="center">☁️･ﾟ✧ keep going one tiny win at a time ✧･ﾟ☁️</p>
 
