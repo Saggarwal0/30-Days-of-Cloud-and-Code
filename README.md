@@ -19,7 +19,7 @@
 
 <p align="center">☁️･ﾟ✧･ﾟ✧･ﾟ✧☁️･ﾟ✧･ﾟ✧･ﾟ✧☁️</p>
 
----
+--- 
 
 ## ✨ Why this Challenge? 
 To build **real, hands-on muscle** in Python, AWS, Terraform, and automation one small win per day.  
